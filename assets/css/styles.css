@@ -1,0 +1,185 @@
+:root{
+    --moderate-violet: hsl(263, 55%, 52%);
+    --pale-violet: hsl(264, 82%, 70%);;
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --white: hsl(0, 0%, 100%);
+
+    --light-gray: hsl(0, 0%, 81%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+  
+
+/* barlow-semi-condensed-500 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Barlow Semi Condensed';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/barlow-semi-condensed-v15-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* barlow-semi-condensed-600 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Barlow Semi Condensed';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/barlow-semi-condensed-v15-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 0.813rem;
+    color: var(--white);
+    background-color: var(--light-grayish-blue);
+    padding: 2rem;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.testimonials {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.testimonial-card {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    display: grid;
+    grid-template: auto;
+    gap: 1rem;
+    -webkit-box-shadow: 40px 60px 50px -47px rgba(72,85,106,0.24);
+    -moz-box-shadow: 40px 60px 50px -47px rgba(72,85,106,0.24);
+    box-shadow: 40px 60px 50px -47px rgba(72,85,106,0.24);
+}
+
+.testimonial-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    z-index: 100;
+}
+
+.user-header {
+    line-height: 1;
+}
+
+.user-role {
+    font-size: 0.688rem;
+    opacity: 0.5;
+}
+
+.user-icon {
+    border-radius: 100%;
+    width: auto;
+    height: 1.75rem;
+}
+
+.testimonial-featured .user-icon, .testimonial-dark .user-icon {
+    border: 2px solid var(--pale-violet);
+    box-sizing: content-box;
+}
+
+blockquote {
+    font-size: 1.25rem;
+    font-weight: 600;
+    z-index: 100;
+}
+
+.testimonial-body {
+    opacity: 0.7;
+    z-index: 100;
+}
+
+.testimonial-featured {
+    position: relative;
+    background-color: var(--moderate-violet);
+}
+
+.testimonial-featured blockquote {
+    margin-bottom: 1rem;
+}
+
+.testimonials .testimonial-featured:before {
+    content: "";
+    background: url('../images/bg-pattern-quotation.svg');
+    position: absolute;
+    width: 104px;
+    height: 102px;
+    top: 0;
+    right: 1rem;
+}
+
+.testimonial-light {
+    background-color: var(--white);
+    color: var(--very-dark-grayish-blue);
+}
+
+.testimonial-gray {
+    background-color: var(--very-dark-grayish-blue);
+}
+.testimonial-dark {
+    background-color: var(--very-dark-blackish-blue);
+}
+
+.attribution {
+    margin: 2rem auto;
+    color: var(--very-dark-blackish-blue);
+    text-align: center;
+}
+
+@media (min-width: 700px){
+    .testimonials {
+        grid-template: repeat(4, 1fr) / 1fr 1fr;
+    }
+}
+
+@media (min-width:1024px){
+    .testimonials {
+        grid-template: 1fr 1fr / repeat(4, 1fr);
+    }
+
+    .testimonial-featured, .testimonial-dark {
+        grid-column: span 2;
+    }
+
+    .testimonial-tall {
+        grid-column-start: 4;
+        grid-row: 1 / span 2;
+    }
+}
